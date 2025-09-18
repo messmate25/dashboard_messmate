@@ -23,10 +23,12 @@ jobs:
         with:
           node-version: '22.x'
 
-      - name: Build React app
+      - name: npm install, build, and test
         run: |
+          rm -rf node_modules
           npm ci
-          npm run build
+          npm run build --if-present
+
 
       - name: Build Docker image
         run: |
